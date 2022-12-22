@@ -1,6 +1,13 @@
 const express = require("express");
+const connect = require("./config/db");
+
+connect();
 
 const app = express();
+
+app.get("/health",(req,res)=>{
+    res.send(`Up and running at ${new Date()}`);
+})
 
 
 const host = process.env.HOST || "localhost";
